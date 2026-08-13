@@ -40,7 +40,7 @@
 			<key>CFBundleTypeIconFile</key>
 			<string>ksign_extension</string>
 			<key>CFBundleTypeName</key>
-			<string>Ksign Certificate Package</string>
+			<string>Sileo Certificate Package</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
@@ -200,7 +200,7 @@
 				<string>public.content</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>Ksign Certificate Package</string>
+			<string>Sileo Certificate Package</string>
 			<key>UTTypeIconFile</key>
 			<string>ksign_extension</string>
 			<key>UTTypeIcons</key>
