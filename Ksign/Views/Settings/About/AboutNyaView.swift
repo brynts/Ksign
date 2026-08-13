@@ -1,6 +1,6 @@
 //
 //  AboutNyaView.swift
-//  Ksign
+//  Sileo
 //
 //  Created by Nagata Asami on 23/5/25.
 //
@@ -12,8 +12,6 @@ import NimbleJSON
 // MARK: - View
 struct AboutNyaView: View {
 	private let _dataService = NBFetchService()
-	
-	@State private var shouldShowPatchNotes = false
 	
 	// MARK: Body
 	var body: some View {
@@ -34,27 +32,18 @@ struct AboutNyaView: View {
                     }
                     .font(.footnote)
                     .foregroundStyle(.secondary)
-                    
-                    Button {
-                        _showPatchNotes()
-                    } label: {
-                        Text("Show patch notes").bg()
-                    }
-                    .font(.footnote)
-                    .padding(.top, 4)
-                    .tint(.accent)
                 }
             }
             .frame(maxWidth: .infinity)
             .listRowBackground(EmptyView())
 			
 			NBSection(.localized("Credits")) {
-				_credit(name: "Nyasami", desc: "Developer", github: "nyasami")
+				_credit(name: "brynts", desc: "Developer", github: "brynts")
 			}
 			
 			NBSection("Special thanks!") {
 				Group {
-					Text(.localized("This couldn't have been done without the original Feather devs! ❤️"))
+					Text(.localized("This couldn't have been done without the original Feather & KSign devs!"))
 						.foregroundStyle(.secondary)
 						.padding(.vertical, 2)
 				}
@@ -72,24 +61,6 @@ struct AboutNyaView: View {
                 Text(Bundle.main.bundleIdentifier ?? "")
             }
 		}
-		.onAppear {
-			// Show patch notes when navigating to this view if they haven't been shown before
-			if !UserDefaults.standard.bool(forKey: "patchNotesShown") {
-				DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-					_showPatchNotes()
-					UserDefaults.standard.set(true, forKey: "patchNotesShown")
-				}
-			}
-		}
-	}
-	
-	private func _showPatchNotes() {
-		UIAlertController.showAlertWithOk(
-			title: .localized("From Nyasami, Version \(Bundle.main.version)"),
-			message: .localized("This version introduces:\n\n- Optimization for iOS 26\n- Bulk installation support for multiple apps\n- idevice installation method\n- Custom injection path & support for injecting tweaks into App Extensions\n- Support for .bundle files as tweaks (copied directly into the app bundle)\n- rsd support\n- Fix empty display name handling in Info.plist\n- Fix URL scheme issues for Ksign\n- Fix codesigning errors on specific apps with unusual bundle structures\n- Localization updates for German, Russian, Arabic, and Vietnamese"),
-			isCancel: true,
-			thankYou: true
-		)
 	}
 }
 
