@@ -1,6 +1,6 @@
 //
 //  AccentColorManager.swift
-//  Ksign
+//  Sileo
 //
 //  Created by Nagata Asami on 6/30/25.
 //
@@ -19,7 +19,8 @@ class AccentColorManager: ObservableObject {
     }
     
     private let _accentColors: [(color: Color, uiColor: UIColor)] = [
-        (Color(red: 0x53/255, green: 0x94/255, blue: 0xF7/255), UIColor(red: 0x53/255, green: 0x94/255, blue: 0xF7/255, alpha: 1.0)), // Default
+        (.mint, .systemMint), // Default - Mint
+        (Color(red: 0x53/255, green: 0x94/255, blue: 0xF7/255), UIColor(red: 0x53/255, green: 0x94/255, blue: 0xF7/255, alpha: 1.0)), // Blue
         (Color(red: 0xFF/255, green: 0x8B/255, blue: 0x92/255), UIColor(red: 0xFF/255, green: 0x8B/255, blue: 0x92/255, alpha: 1.0)), //rgb(255, 139, 146)
         (.red, .systemRed),
         (.orange, .systemOrange),
@@ -29,7 +30,6 @@ class AccentColorManager: ObservableObject {
         (.purple, .systemPurple),
         (.pink, .systemPink),
         (.indigo, .systemIndigo),
-        (.mint, .systemMint),
         (.cyan, .systemCyan),
         (.teal, .systemTeal)
     ]
@@ -59,4 +59,4 @@ class AccentColorManager: ObservableObject {
                 }
         }
     }
-} 
+}
