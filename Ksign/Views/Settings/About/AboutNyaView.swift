@@ -38,7 +38,25 @@ struct AboutNyaView: View {
             .listRowBackground(EmptyView())
 			
 			NBSection(.localized("Credits")) {
-				_credit(name: "brynts", desc: "Developer", github: "brynts")
+				HStack(spacing: 9) {
+					Image("BryntsAvatar")
+						.appIconStyle()
+					
+					NBTitleWithSubtitleView(
+						title: "brynts",
+						subtitle: "Developer",
+						linelimit: 0
+					)
+					
+					Spacer()
+					Image(systemName: "arrow.up.right")
+						.foregroundStyle(.secondary)
+				}
+				.onTapGesture {
+					if let url = URL(string: "https://github.com/brynts") {
+						UIApplication.shared.open(url)
+					}
+				}
 			}
 			
 			NBSection("Special thanks!") {
@@ -60,31 +78,6 @@ struct AboutNyaView: View {
             } footer: {
                 Text(Bundle.main.bundleIdentifier ?? "")
             }
-		}
-	}
-}
-
-// MARK: - Extension: view
-extension AboutNyaView {
-	@ViewBuilder
-	private func _credit(
-		name: String?,
-		desc: String?,
-		github: String
-	) -> some View {
-		FRIconCellView(
-			title: name ?? github,
-			subtitle: desc ?? "",
-			iconUrl: URL(string: "https://github.com/\(github).png")!,
-			trailing: AnyView(
-				Image(systemName: "arrow.up.right")
-					.foregroundStyle(.secondary)
-			)
-		)
-		.onTapGesture {
-			if let url = URL(string: "https://github.com/\(github)") {
-				UIApplication.shared.open(url)
-			}
 		}
 	}
 }
