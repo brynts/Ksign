@@ -1,4 +1,4 @@
-NAME := Ksign
+NAME := Sileo
 PLATFORM := iphoneos
 SCHEMES := Ksign
 TMP := $(TMPDIR)/$(NAME)
@@ -51,4 +51,4 @@ $(SCHEMES): deps
 	ln -sf "$(STAGE)/Payload" Payload
 	
 	mkdir -p packages
-	zip -r9 "packages/$@.ipa" Payload
+	zip -r9 "packages/$(NAME).ipa" Payload
