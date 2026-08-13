@@ -1,6 +1,6 @@
 //
 //  AppIconView.swift
-//  Ksign
+//  Sileo
 //
 //  Created by Nagata Asami on 6/28/25.
 //
@@ -25,14 +25,17 @@ struct AppIconView: View {
         AppIconOption(
             id: "primary",
             title: "Default",
-            subtitle: "Ksign",
+            subtitle: "Sileo",
             iconName: "AppIcon",
             alternateIconName: nil
         ),
-        
-        AppIconOption(id: "kana_peek", title: "Peek", subtitle: "Kana", iconName: "kana_peek", alternateIconName: "kana_peek"),
-        AppIconOption(id: "kana_love", title: "Love", subtitle: "Kana", iconName: "kana_love", alternateIconName: "kana_love"),
-        AppIconOption(id: "kana_ded", title: "Skull", subtitle: "Kana", iconName: "kana_ded", alternateIconName: "kana_ded"),
+        AppIconOption(
+            id: "kana_peek",
+            title: "Cydia",
+            subtitle: "Classic",
+            iconName: "kana_peek",
+            alternateIconName: "kana_peek"
+        ),
     ]
     
     // MARK: Body
@@ -92,11 +95,6 @@ extension AppIconView {
     private func _changeAppIcon(to iconOption: AppIconOption) {
         guard selectedIcon != iconOption.alternateIconName else { return }
         
-//        guard UIApplication.shared.supportsAlternateIcons else {
-//            print("Alternate icons are not supported on this device")
-//            return
-//        }
-        
         UIApplication.shared.setAlternateIconName(iconOption.alternateIconName) { error in
             DispatchQueue.main.async {
                 if let error = error {
@@ -108,4 +106,4 @@ extension AppIconView {
             }
         }
     }
-} 
+}
