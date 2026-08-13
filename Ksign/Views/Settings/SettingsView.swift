@@ -27,7 +27,7 @@ struct SettingsView: View {
         return _certificates[_storedSelectedCert]
     }
     
-	private let _githubUrl = "https://github.com/brynts/Ksign"
+	private let _githubUrl = "https://github.com/brynts/Sileo"
 	// MARK: Body
     var body: some View {
 		NBNavigationView(.localized("Settings")) {
