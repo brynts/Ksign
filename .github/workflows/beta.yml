@@ -1,8 +1,6 @@
 name: Beta Build
 
 on:
-  push:
-    branches: [ "main", "sileo" ]
   workflow_dispatch:
 
 jobs:
